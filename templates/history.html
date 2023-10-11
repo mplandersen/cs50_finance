@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <form action="/history" method="get">
+        <h3>Transactions</h3>
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <td>Stock</td><td>Price</td><td>Shares</td><td>Cash</td><td>Time</td><td>Date</td><td>Type</td>
+            </thead>
+        {% for history in histories %}
+            <tr>
+                <td>{{ history.stock }}</td><td>{{ usd(history.price) }}</td><td>{{ history.shares }}</td><td>{{ usd(history.value) }}</td><td>{{ usd(history.total_cash) }}</td><td>{{ history.time }}</td><td>{{ history.date }}</td><td>{{ history.trans }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    </form>
+{% endblock %}

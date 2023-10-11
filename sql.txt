@@ -1,0 +1,3 @@
+SELECT stock, price, updated price, total value
+
+db.execute("CREATE TABLE portfolio (stock_id INTEGER PRIMARY KEY, stock TEXT NOT NULL, price INTEGER NOT NULL, time TIME, date DATE)")

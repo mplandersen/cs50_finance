@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <form action="/" method="get">
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <td>Stock</td><td>Cost</td><td>Shares</td><td>Total</td><td>Time</td><td>Date</td><td>Value</td>
+            </thead>
+            {% for row in live_portfolio %}
+                <tr>
+                <td>{{ row.stock }}</td><td>{{ usd(row.price) }}</td><td>{{ row.shares }}</td><td>{{ usd(row.cost) }}</td><td>{{ row.time }}</td><td>{{ row.date }}</td><td>{{ usd(row.live_value) }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <div>
+            <h3>Cash available: {{ usd(current_cash['cash']) }}</h3>
+            <h3>Total Value of Portfolio: {{ usd(current_cash['cash'] + total_live_value) }}</h3>
+        </div>
+    </form>
+{% endblock %}
