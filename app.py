@@ -8,7 +8,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 from helpers import apology, login_required, lookup, usd
 
-# second attempt 
+# i am adding notes why is it not working 
 
 # Configure application
 app = Flask(__name__)
